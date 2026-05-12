@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShopinIndia">
         <activity
+            android:name=".HomeScreen"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".SignupScreen"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SignupScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
