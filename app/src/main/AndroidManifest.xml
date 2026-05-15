@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShopinIndia">
         <activity
+            android:name=".TrackOrder"
+            android:exported="false" />
+        <activity
             android:name=".OrderDetaills"
             android:exported="false" />
         <activity

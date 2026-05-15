@@ -1,586 +1,569 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
-    android:fillViewport="true"
-    android:overScrollMode="never">
+    android:background="#F5F7FA">
 
-    <LinearLayout
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
-        <!-- Top Image Carousel -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="320dp"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="0dp">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPagerProductImages"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <ImageView
-                    android:id="@+id/imgBack"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_margin="16dp"
-                    android:padding="10dp"
-                    android:background="@drawable/circle_white_bg"
-                    android:src="@android:drawable/ic_media_previous"
-                    android:tint="#1E3A5F"
-                    android:layout_gravity="top|start" />
-
-                <ImageView
-                    android:id="@+id/imgWishlist"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_margin="16dp"
-                    android:padding="10dp"
-                    android:background="@drawable/circle_white_bg"
-                    android:src="@android:drawable/btn_star_big_off"
-                    android:tint="#1E3A5F"
-                    android:layout_gravity="top|end" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabDots"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="14dp"
-                    app:tabIndicatorHeight="0dp"
-                    app:tabPaddingStart="6dp"
-                    app:tabPaddingEnd="6dp"
-                    app:tabRippleColor="@android:color/transparent"
-                    app:tabSelectedTextColor="#2563EB"
-                    app:tabTextColor="#D1D5DB" />
-            </FrameLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Content Card -->
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-18dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="18dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="8dp"
-            app:strokeColor="#E5E7EB"
-            app:strokeWidth="1dp"
-            app:cardBackgroundColor="#FFFFFF">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <!-- Top Image Carousel -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="18dp">
+                android:layout_height="320dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
 
-                <!-- Title + Share -->
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/txtProductName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Premium Running Shoes"
-                            android:textColor="#111827"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txtBrandName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="by Nike"
-                            android:textColor="#6B7280"
-                            android:textSize="14sp"
-                            android:layout_marginTop="4dp" />
-                    </LinearLayout>
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPagerProductImages"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                     <ImageView
-                        android:id="@+id/imgShare"
+                        android:id="@+id/imgBack"
                         android:layout_width="42dp"
                         android:layout_height="42dp"
+                        android:layout_margin="16dp"
                         android:padding="10dp"
-                        android:background="@drawable/circle_light_bg"
-                        android:src="@android:drawable/ic_menu_share"
-                        android:tint="#2563EB" />
-                </LinearLayout>
-
-                <!-- Rating Row -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="14dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/txtRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4.8"
-                        android:textColor="#111827"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:background="@drawable/circle_white_bg"
+                        android:src="@android:drawable/ic_media_previous"
+                        android:tint="#1E3A5F"
+                        android:layout_gravity="top|start" />
 
                     <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="6dp"
-                        android:src="@android:drawable/btn_star_big_on"
-                        android:tint="#F59E0B" />
+                        android:id="@+id/imgWishlist"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_margin="16dp"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_white_bg"
+                        android:src="@android:drawable/btn_star_big_off"
+                        android:tint="#1E3A5F"
+                        android:layout_gravity="top|end" />
 
-                    <TextView
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabDots"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(124 reviews)"
-                        android:textColor="#6B7280"
-                        android:textSize="13sp"
-                        android:layout_marginStart="8dp" />
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="14dp"
+                        app:tabIndicatorHeight="0dp"
+                        app:tabPaddingStart="6dp"
+                        app:tabPaddingEnd="6dp"
+                        app:tabRippleColor="@android:color/transparent"
+                        app:tabSelectedTextColor="#2563EB"
+                        app:tabTextColor="#D1D5DB" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
-                        android:id="@+id/txtStock"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="In Stock"
-                        android:textColor="#16A34A"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="auto" />
-                </LinearLayout>
+            <!-- Content Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="#FFFFFF">
 
-                <!-- Price Row -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical">
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-                    <TextView
-                        android:id="@+id/txtPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₹899"
-                        android:textColor="#2563EB"
-                        android:textSize="26sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtOldPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₹1299"
-                        android:textColor="#9CA3AF"
-                        android:textSize="16sp"
-                        android:paintFlags="strikeThruText"
-                        android:layout_marginStart="10dp"
-                        android:layout_gravity="bottom" />
-
-                    <TextView
-                        android:id="@+id/txtDiscount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="30% OFF"
-                        android:textColor="#DC2626"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:background="#FEE2E2"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="4dp"
-                        android:layout_marginStart="12dp" />
-                </LinearLayout>
-
-                <!-- Short Description -->
-                <TextView
-                    android:id="@+id/txtShortDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lightweight, stylish and made for all-day comfort."
-                    android:textColor="#374151"
-                    android:textSize="14sp"
-                    android:layout_marginTop="14dp"
-                    android:lineSpacingExtra="4dp" />
-
-                <!-- Divider -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E5E7EB"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Color -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Color"
-                    android:textColor="#111827"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:layout_marginBottom="16dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Black"
-                            android:layout_marginEnd="8dp"
-                            app:chipBackgroundColor="#2563EB"
-                            app:chipTextColor="#FFFFFF"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="White"
-                            android:layout_marginEnd="8dp"
-                            app:chipBackgroundColor="#E5E7EB"
-                            app:chipTextColor="#111827"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Blue"
-                            app:chipBackgroundColor="#E5E7EB"
-                            app:chipTextColor="#111827"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- Size -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Size"
-                    android:textColor="#111827"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    android:layout_marginBottom="16dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="6"
-                            android:layout_marginEnd="8dp"
-                            app:chipBackgroundColor="#E5E7EB"
-                            app:chipTextColor="#111827"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="7"
-                            android:layout_marginEnd="8dp"
-                            app:chipBackgroundColor="#2563EB"
-                            app:chipTextColor="#FFFFFF"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="8"
-                            android:layout_marginEnd="8dp"
-                            app:chipBackgroundColor="#E5E7EB"
-                            app:chipTextColor="#111827"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="9"
-                            app:chipBackgroundColor="#E5E7EB"
-                            app:chipTextColor="#111827"
-                            app:chipCornerRadius="18dp"
-                            app:checkedIconVisible="false" />
-                    </LinearLayout>
-                </HorizontalScrollView>
-
-                <!-- Description -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Description"
-                    android:textColor="#111827"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp" />
-
-                <TextView
-                    android:id="@+id/txtDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This product is made with premium material and perfect finishing. It gives comfort, style and durability for daily use."
-                    android:textColor="#4B5563"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="5dp"
-                    android:layout_marginBottom="16dp" />
-                <!-- Reviews Section -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Customer Reviews"
-                    android:textColor="#111827"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="10dp" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="18dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#E5E7EB"
-                    app:strokeWidth="1dp"
-                    app:cardBackgroundColor="#FAFAFA">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="14dp">
-
-                        <!-- Rating Row -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Your Rating:"
-                                android:textColor="#374151"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <RatingBar
-                                android:id="@+id/ratingBar"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:numStars="5"
-                                android:stepSize="0.5"
-                                android:isIndicator="false"
-                                style="?android:attr/ratingBarStyleSmall" />
-                        </LinearLayout>
-
-                        <!-- Review Text -->
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            app:boxBackgroundMode="outline"
-                            app:boxCornerRadiusTopStart="14dp"
-                            app:boxCornerRadiusTopEnd="14dp"
-                            app:boxCornerRadiusBottomStart="14dp"
-                            app:boxCornerRadiusBottomEnd="14dp"
-                            app:boxStrokeColor="#2563EB">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edtReview"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Write your review..."
-                                android:inputType="textMultiLine"
-                                android:minLines="3"
-                                android:gravity="top"
-                                android:textColor="#111827"
-                                android:textColorHint="#9CA3AF"
-                                android:padding="14dp" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Submit Button -->
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btnSubmitReview"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="12dp"
-                            android:background="#2563EB"
-                            android:text="Submit Review"
-                            android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
-                            android:textStyle="bold"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-                <!-- Seller Info -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="18dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#E5E7EB"
-                    app:strokeWidth="1dp"
-                    app:cardBackgroundColor="#FAFAFA">
-
+                    <!-- Title + Share -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="14dp"
                         android:gravity="center_vertical">
-
-                        <ImageView
-                            android:layout_width="52dp"
-                            android:layout_height="52dp"
-                            android:src="@drawable/ic_launcher_foreground"
-                            android:scaleType="centerCrop" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_marginStart="12dp">
+                            android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/txtProductName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Sold by Fashion Hub"
+                                android:text="Premium Running Shoes"
                                 android:textColor="#111827"
-                                android:textSize="15sp"
+                                android:textSize="24sp"
                                 android:textStyle="bold" />
 
                             <TextView
+                                android:id="@+id/txtBrandName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Trusted seller • 4.9 rating"
+                                android:text="by Nike"
                                 android:textColor="#6B7280"
-                                android:textSize="13sp"
-                                android:layout_marginTop="3dp" />
+                                android:textSize="14sp"
+                                android:layout_marginTop="4dp" />
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@android:drawable/ic_menu_call"
+                            android:id="@+id/imgShare"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:padding="10dp"
+                            android:background="@drawable/circle_light_bg"
+                            android:src="@android:drawable/ic_menu_share"
                             android:tint="#2563EB" />
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Bottom Action Buttons -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="6dp">
+                    <!-- Rating Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center_vertical">
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnAddToCart"
-                        android:layout_width="0dp"
-                        android:layout_height="54dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="8dp"
+                        <TextView
+                            android:id="@+id/txtRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4.8"
+                            android:textColor="#111827"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="6dp"
+                            android:src="@android:drawable/btn_star_big_on"
+                            android:tint="#F59E0B" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(124 reviews)"
+                            android:textColor="#6B7280"
+                            android:textSize="13sp"
+                            android:layout_marginStart="8dp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/txtStock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="In Stock"
+                            android:textColor="#16A34A"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Price Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/txtPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹899"
+                            android:textColor="#2563EB"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtOldPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹1299"
+                            android:textColor="#9CA3AF"
+                            android:textSize="16sp"
+                            android:paintFlags="strikeThruText"
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="bottom" />
+
+                        <TextView
+                            android:id="@+id/txtDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30% OFF"
+                            android:textColor="#DC2626"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:background="#FEE2E2"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <!-- Short Description -->
+                    <TextView
+                        android:id="@+id/txtShortDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lightweight, stylish and made for all-day comfort."
+                        android:textColor="#374151"
+                        android:textSize="14sp"
+                        android:layout_marginTop="14dp"
+                        android:lineSpacingExtra="4dp" />
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:background="#E5E7EB"
-                        android:text="Add to Cart"
-                        android:textAllCaps="false"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Color -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Color"
                         android:textColor="#111827"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
 
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnBuyNow"
-                        android:layout_width="0dp"
-                        android:layout_height="54dp"
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:background="#2563EB"
-                        android:text="Buy Now"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Black"
+                                android:layout_marginEnd="8dp"
+                                app:chipBackgroundColor="#2563EB"
+                                app:chipTextColor="#FFFFFF"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="White"
+                                android:layout_marginEnd="8dp"
+                                app:chipBackgroundColor="#E5E7EB"
+                                app:chipTextColor="#111827"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Blue"
+                                app:chipBackgroundColor="#E5E7EB"
+                                app:chipTextColor="#111827"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <!-- Size -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Size"
+                        android:textColor="#111827"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6"
+                                android:layout_marginEnd="8dp"
+                                app:chipBackgroundColor="#E5E7EB"
+                                app:chipTextColor="#111827"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="7"
+                                android:layout_marginEnd="8dp"
+                                app:chipBackgroundColor="#2563EB"
+                                app:chipTextColor="#FFFFFF"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8"
+                                android:layout_marginEnd="8dp"
+                                app:chipBackgroundColor="#E5E7EB"
+                                app:chipTextColor="#111827"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="9"
+                                app:chipBackgroundColor="#E5E7EB"
+                                app:chipTextColor="#111827"
+                                app:chipCornerRadius="18dp"
+                                app:checkedIconVisible="false" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <!-- Description -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description"
+                        android:textColor="#111827"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:id="@+id/txtDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="This product is made with premium material and perfect finishing. It gives comfort, style and durability for daily use."
+                        android:textColor="#4B5563"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="5dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Reviews Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Customer Reviews"
+                        android:textColor="#111827"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="10dp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#E5E7EB"
+                        app:strokeWidth="1dp"
+                        app:cardBackgroundColor="#FAFAFA">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Your Rating:"
+                                    android:textColor="#374151"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <RatingBar
+                                    android:id="@+id/ratingBar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:numStars="5"
+                                    android:stepSize="0.5"
+                                    android:isIndicator="false"
+                                    style="?android:attr/ratingBarStyleSmall" />
+                            </LinearLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                app:boxBackgroundMode="outline"
+                                app:boxCornerRadiusTopStart="14dp"
+                                app:boxCornerRadiusTopEnd="14dp"
+                                app:boxCornerRadiusBottomStart="14dp"
+                                app:boxCornerRadiusBottomEnd="14dp"
+                                app:boxStrokeColor="#2563EB">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtReview"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Write your review..."
+                                    android:inputType="textMultiLine"
+                                    android:minLines="3"
+                                    android:gravity="top"
+                                    android:textColor="#111827"
+                                    android:textColorHint="#9CA3AF"
+                                    android:padding="14dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnSubmitReview"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="12dp"
+                                android:background="#2563EB"
+                                android:text="Submit Review"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textStyle="bold"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Seller Info -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="#E5E7EB"
+                        app:strokeWidth="1dp"
+                        app:cardBackgroundColor="#FAFAFA">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="14dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
+                                android:src="@drawable/ic_launcher_foreground"
+                                android:scaleType="centerCrop" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sold by Fashion Hub"
+                                    android:textColor="#111827"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Trusted seller • 4.9 rating"
+                                    android:textColor="#6B7280"
+                                    android:textSize="13sp"
+                                    android:layout_marginTop="3dp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@android:drawable/ic_menu_call"
+                                android:tint="#2563EB" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="18dp"
-            android:layout_marginBottom="6dp">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAddToCart"
-                android:layout_width="0dp"
-                android:layout_height="54dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:background="#E5E7EB"
-                android:text="Add to Cart"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnBuyNow"
-                android:layout_width="0dp"
-                android:layout_height="54dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:background="#2563EB"
-                android:text="Buy Now"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
+    <!-- Fixed Bottom Buttons -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:background="#FFFFFF"
+        android:elevation="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddToCart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:background="#E5E7EB"
+            android:text="Add to Cart"
+            android:textAllCaps="false"
+            android:textColor="#111827"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBuyNow"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="#2563EB"
+            android:text="Buy Now"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
